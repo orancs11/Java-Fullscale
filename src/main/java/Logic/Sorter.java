@@ -1,4 +1,4 @@
-package oran;
+package Logic;
 
 public class Sorter {
     public static void bubbleSort(int[] arr){

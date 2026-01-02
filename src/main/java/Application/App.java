@@ -1,9 +1,15 @@
-package oran;
+package Application;
+
+import Interface.Visualizer;
+import Logic.Sorter;
+import javax.swing.*;
 
 /**
 
 
  */
+
+
 public class App
 {
     public static void main( String[] args ) {
@@ -16,7 +22,8 @@ public class App
         System.out.println("Sorted version");
         Sorter.display(numbers);
 
-
+        Visualizer visualizer = new Visualizer("Visualizerr", 300, 400);
+        visualizer.display();
 
     }
 }
