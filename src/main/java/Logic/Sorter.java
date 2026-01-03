@@ -1,6 +1,7 @@
 package Logic;
 
 public class Sorter {
+
     public static void bubbleSort(int[] arr){
         int size = arr.length;
         for(int i = 0; i < size; i++)
@@ -20,8 +21,6 @@ public class Sorter {
 
     public static void selectionSort(int[] arr){
         int size = arr.length;
-
-
         for(int i = 0; i < size; i++){
             int minIndex = i;
             for(int j = i + 1; j < size - 1; j++)

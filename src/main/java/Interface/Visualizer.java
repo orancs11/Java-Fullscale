@@ -11,9 +11,6 @@ public class Visualizer extends JFrame{
         this.setSize(width, height);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Terminate program when clicked on 'x'
 
-        BarPanel panel = new BarPanel();
-        this.add(panel);
-
     }
 
     public void display(){
