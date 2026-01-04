@@ -1,9 +1,7 @@
 package Application;
 
 import Interface.Bar;
-import Interface.BarPanel;
-import Interface.Visualizer;
-import Logic.Sorter;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -16,29 +14,29 @@ import java.awt.*;
 public class App
 {
     public static void main( String[] args ) {
-        int[] numbers = new int[]{5, 2, 3, 4, 1, 8, 2, 12, 3, 15};
-        System.out.println("Original version");
-        Sorter.display(numbers);
+        JFrame frame = new JFrame();
 
-        //Sorter.bubbleSort(numbers); Bubble Sort
-        Sorter.selectionSort(numbers);
-        System.out.println("Sorted version");
-        Sorter.display(numbers);
+        JPanel inputPanel = new JPanel(new FlowLayout());
+        JPanel barPanel = new JPanel(new FlowLayout());
+        JPanel mainPanel = new JPanel(new GridBagLayout());
 
-        //Visualizer visualizer = new Visualizer("Visualizerr", 300, 400);
-        //Bar bar = new Bar();
-        //visualizer.display();
-        //visualizer.add(bar);
-        //visualizer.createBarPlot(numbers);
-        JPanel panel = new JPanel();
-        panel.setBackground(Color.BLACK);
-        JFrame frame = new JFrame("VISUALIZER");
-        frame.setSize(1920, 1080);
+        JTextField inputField = new JTextField("Enter Number", 40);
+        JButton sendButton = new JButton("Confirm");
+        Bar bar = new Bar(100, 100, 0, 0, Color.red);
+
+        inputPanel.add(inputField);
+        inputPanel.add(sendButton);
+
+        barPanel.add(bar);
+
+        mainPanel.add(inputPanel);
+        mainPanel.add(barPanel);
+
+        frame.setSize(1000, 1000);
+        frame.getContentPane().add(mainPanel, BorderLayout.CENTER);
+        frame.pack();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        //panel.add(new Bar(100, 200, 0, 0, Color.WHITE));
-        frame.getContentPane().add(panel, BorderLayout.CENTER);
         frame.setVisible(true);
-
 
     }
 }

@@ -1,14 +1,16 @@
 package Interface;
 
 import javax.swing.JComponent;
-import java.awt.Graphics;
-import java.awt.Color;
+import java.awt.*;
 
 public class Bar extends JComponent{
     private int width, height, x, y;
     private Color color;
+    private Dimension d;
     public Bar(int width, int height, int x, int y, Color color){
         super();
+        this.d = new Dimension(width, height);
+        this.setPreferredSize(d);
         this.width = width;
         this.height = height;
         this.x = x;
