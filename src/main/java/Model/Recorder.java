@@ -8,6 +8,7 @@ import Logic.Utilities.*;
 public class Recorder extends ArrayList<int[]> {
 
     private final int size;
+    private int lastIndex = -1;
 
     public Recorder(int size){
         super(size);
@@ -16,6 +17,12 @@ public class Recorder extends ArrayList<int[]> {
 
     public void record(int[] a){
         this.add(a);
+        lastIndex++;
+    }
+    public long memorySizeInBytes(){
+        if(this.isEmpty()) return 0;
+        int elementLength = this.get(0).length;
+        return (long) elementLength * 4 * (lastIndex + 1) + 16;
     }
 
     @Override
