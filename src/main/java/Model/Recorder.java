@@ -7,12 +7,10 @@ import Logic.Utilities.*;
 
 public class Recorder extends ArrayList<int[]> {
 
-    private final int size;
     private int lastIndex = -1;
 
-    public Recorder(int size){
-        super(size);
-        this.size = size;
+    public Recorder(){
+        super();
     }
 
     public void record(int[] a){
@@ -27,6 +25,8 @@ public class Recorder extends ArrayList<int[]> {
 
     @Override
     public String toString(){
+        if(this.isEmpty()) return "";
+        int size = this.get(0).length;
         StringBuilder result = new StringBuilder("RECORD HISTORY\n");
         for(int i = 0; i < size; i++){
             result.append("=");
@@ -40,9 +40,5 @@ public class Recorder extends ArrayList<int[]> {
         }
         return result.toString();
     }
-
-
-
-
 
 }

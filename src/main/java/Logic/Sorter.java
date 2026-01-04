@@ -1,26 +1,61 @@
 package Logic;
 
-public class Sorter {
+import Model.Recorder;
 
-    public static void bubbleSort(int[] arr){
-        int size = arr.length;
-        for(int i = 0; i < size; i++)
-            for(int j = 0; j < size - 1; j++)
-                if(arr[j] > arr[j + 1]) swap(arr, i, j);
+import java.util.Arrays;
+
+public class Sorter {
+    private Recorder history;
+    private final int[] target;
+
+    public Sorter(int[] array){
+        target = array;
+        history = new Recorder();
     }
 
-    public static void selectionSort(int[] arr){
-        int size = arr.length;
+    public Recorder bubbleSort(){
+        clearHistory();
+
+        int[] copyTarget = Utilities.copyArray(target);
+        int size = copyTarget.length;
+
+        for(int i = 0; i < size; i++)
+            for(int j = 0; j < size - 1; j++)
+                if(copyTarget[j] > copyTarget[j + 1]){
+                    swap(i, j);
+                    history.record(copyTarget);
+                }
+        return history;
+    }
+
+    public Recorder selectionSort(){
+        clearHistory();
+
+        int[] copyTarget = Utilities.copyArray(target);
+        int size = copyTarget.length;
+
         for(int i = 0; i < size; i++){
             int minIndex = i;
             for(int j = i + 1; j < size - 1; j++)
-                if(arr[j] < arr[minIndex]) minIndex = j;
-            swap(arr, i, minIndex);
+                if(copyTarget[j] < copyTarget[minIndex]) minIndex = j;
+            swap(i, minIndex);
         }
+
+        return history;
     }
-    private static void swap(int[] arr, int i, int j){
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
+
+    public void clearHistory(){this.history.clear();}
+
+    public int[] getOriginalArray(){
+        return target;
     }
+
+    private void swap(int i, int j){
+        int temp = target[i];
+        target[i] = target[j];
+        target[j] = temp;
+    }
+
+
+
 }
