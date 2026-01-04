@@ -1,5 +1,9 @@
 package Logic;
 
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
+
 public class Utilities {
 
     public static boolean isNumericString(String s){
@@ -14,5 +18,18 @@ public class Utilities {
 
     public static int convertInt(String message){
         return Integer.parseInt(message);
+    }
+
+    public static int[] createArray(int size, boolean isRandom){
+        int[] result = new int[size];
+        Random random = new Random(42);
+        for(int i = 0; i < size; i++){
+            int currNumber = i;
+            if(isRandom){
+                currNumber = random.nextInt(100);
+            }
+            result[i] = currNumber;
+        }
+        return result;
     }
 }

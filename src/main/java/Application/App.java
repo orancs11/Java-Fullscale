@@ -3,6 +3,7 @@ package Application;
 import Interface.Bar;
 import Logic.Utilities;
 
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -19,12 +20,13 @@ public class App
         JPanel labelPanel = new JPanel();
         upperPanel.setLayout(new BoxLayout(upperPanel, BoxLayout.Y_AXIS));
         JPanel barPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 10));
-        JPanel mainPanel = new JPanel(new BorderLayout());
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
         JTextField inputField = new JTextField("Enter Number", 20);
         JButton sendButton = new JButton("Confirm");
         JLabel label = new JLabel();
-        int[] tempArr = new int[]{0};
+        int[] tempArr = new int[]{10};
 
         sendButton.addActionListener(new ActionListener() {
             @Override
@@ -35,11 +37,10 @@ public class App
                     label.setText(message);
                 }
                 tempArr[0] = Utilities.convertInt(inputField.getText());
-                System.out.println(tempArr[0]);
             }
         });
 
-        int[] arr = new int[]{1, 25, 31, 4, 5, 6, 7, 8, 9, 10};
+        int[] arr = Utilities.createArray(tempArr[0], true);
 
         for(int number : arr) {
             int width = 100;
@@ -53,8 +54,8 @@ public class App
         upperPanel.add(inputPanel);
         upperPanel.add(labelPanel);
 
-        mainPanel.add(upperPanel, BorderLayout.NORTH);
-        mainPanel.add(barPanel, BorderLayout.SOUTH);
+        mainPanel.add(upperPanel);
+        mainPanel.add(barPanel);
 
         frame.setSize(1000, 1000);
         frame.getContentPane().add(mainPanel);
