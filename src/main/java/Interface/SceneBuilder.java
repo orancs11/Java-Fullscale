@@ -13,6 +13,7 @@ public class SceneBuilder {
     private JPanel lowerPanel;
     private BarPanel barPanel;
     private InputPanel inputPanel;
+
     public SceneBuilder(int width, int height){
         frame = new JFrame();
         frame.setPreferredSize(new Dimension(Math.max(500, width), Math.max(500, height)));
@@ -62,6 +63,10 @@ public class SceneBuilder {
         prepareLowerPanel(new int[]{1, 2, 3, 4, 5});
         prepareMainPanel();
         prepareScene();
+    }
+
+    public void display(){
+        frame.setVisible(true);
     }
 
     public void playRecord(Recorder recorder){
