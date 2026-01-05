@@ -12,7 +12,7 @@ public class SceneBuilder {
     private JPanel upperPanel;
     private JPanel lowerPanel;
     private BarPanel barPanel;
-
+    private InputPanel inputPanel;
     public SceneBuilder(int width, int height){
         frame = new JFrame();
         frame.setPreferredSize(new Dimension(Math.max(500, width), Math.max(500, height)));
@@ -22,13 +22,19 @@ public class SceneBuilder {
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
         upperPanel = new JPanel();
+        upperPanel.setLayout(new BoxLayout(upperPanel, BoxLayout.Y_AXIS)); // This might be unnecessary
+
         lowerPanel = new JPanel();
         barPanel = new BarPanel();
+        inputPanel = new InputPanel();
 
         initiate();
     }
 
-    private void prepareUpperPanel(){}
+
+    private void prepareUpperPanel(){
+        upperPanel.add(inputPanel);
+    }
     private void prepareLowerPanel(int[] iteration){
         barPanel.removeAll();
         barPanel.createBars(iteration);

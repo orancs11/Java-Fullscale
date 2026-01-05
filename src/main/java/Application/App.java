@@ -28,6 +28,7 @@ public class App
         JTextField inputField = new JTextField("Enter Number", 20);
         JButton sendButton = new JButton("Confirm");
         JLabel label = new JLabel();
+
         int[] tempArr = new int[]{10};
 
         sendButton.addActionListener(new ActionListener() {
