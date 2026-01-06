@@ -57,6 +57,7 @@ public class SceneBuilder {
             this.lowerPanel.remove(barPanel);
             barPanel.removeAll();
             barPanel.createBars(iteration);
+            lowerPanel.add(barPanel);
     }
 
     private void initiate(){
