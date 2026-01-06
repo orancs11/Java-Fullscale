@@ -34,6 +34,7 @@ public class SceneBuilder {
 
 
     private void prepareUpperPanel(){
+
         upperPanel.add(inputPanel);
     }
     private void prepareLowerPanel(int[] iteration){

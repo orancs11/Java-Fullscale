@@ -21,13 +21,18 @@ public class InputPanel extends JPanel {
 
         textField = new JTextField("Enter Number", 20);
         warningLabel = new JLabel();
+
+        this.add(textField);
+        this.add(setButton);
+        this.add(unsortButton);
+        this.add(warningLabel);
     }
 
     private ActionListener setButtonActionListener(){
         return new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                warningLabel.setText(""); // Unload Label Text
+                warningLabel.setText("FILL ME WITH SOMETHING"); // Unload Label Text
             }
         };
     }
@@ -37,7 +42,7 @@ public class InputPanel extends JPanel {
         return new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                warningLabel.setText(""); // Unload Label Text
+                warningLabel.setText("FILL ME WITH SOMETHING"); // Unload Label Text
             }
         };
     }
